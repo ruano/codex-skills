@@ -11,7 +11,7 @@ This repository contains reusable Codex skills for enforcing:
 
 Clone or reference this repo in your project.
 
-Ensure `.skills/` is accessible by Codex.
+Ensure `.agents/` is accessible by Codex.
 
 Then prompt:
 
