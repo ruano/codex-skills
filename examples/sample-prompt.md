@@ -19,3 +19,11 @@ Use dotnet-resiliency to propose retry and circuit breaker improvements.
 ---
 
 Use dotnet-observability to add tracing and metrics to this worker.
+
+---
+
+Use dotnet-testing to create unit tests using xUnit, Shouldly, NSubstitute and AAA.
+
+---
+
+Use dotnet-testing to create integration tests using xUnit, Shouldly and Testcontainers.
