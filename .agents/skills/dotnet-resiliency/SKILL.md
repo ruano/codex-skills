@@ -22,6 +22,7 @@ Apply resilience patterns carefully and pragmatically in distributed .NET system
 
 ## Core rules
 
+- Use `Microsoft.Extensions.Http.Resilience` package
 - Retry only transient failures.
 - Never retry validation or business rule failures.
 - Always pair retries with bounded attempts and backoff.

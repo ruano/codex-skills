@@ -11,8 +11,8 @@ Improve diagnosability, operational visibility, and production supportability in
 
 ## Use this skill for
 
-- structured logging
 - OpenTelemetry
+- structured logging
 - tracing
 - metrics
 - correlation IDs
