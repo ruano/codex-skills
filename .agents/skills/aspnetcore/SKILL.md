@@ -34,6 +34,9 @@ Provide guidance for modern ASP.NET Core backend development with maintainabilit
 - Do not expose EF entities directly through API contracts.
 - Add pagination for list endpoints when needed.
 - Use ProblemDetails for API errors when possible.
+- Logging should be structured and avoid sensitive data.
+- Use Options Pattern with Data Anotations and validate it on start using ValidateOnStart() method
+- Prefer Span/ReadOnlySpan over Substring for allocation-sensitive string parsing.
 
 ## Project structure preference
 
@@ -54,13 +57,16 @@ For smaller services, keep the same separation of concerns even if the folders a
   - AddApi()
 - Avoid service locator patterns.
 - Avoid oversized classes with too many dependencies.
+- Use KeyedService (AddKeyedScoped, AddKeyedSingleton, AddKeyedTransient) when a interface has multiples implementations
 
 ## API design
 
 - Use minimal APIs for smaller, focused services.
 - Use controllers for larger APIs or when conventions and grouping are helpful.
 - Validate input at the edge.
+- Use FluentValidation to validate endpoint request models.
 - Keep transport validation separate from business validation.
+- Use Workflow Core when endpoint actions need durable workflow orchestration.
 
 ## Persistence
 

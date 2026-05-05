@@ -30,6 +30,7 @@ Guide implementation and review of event-driven and message-driven solutions in 
 - Define poison message or dead-letter behavior.
 - Preserve correlation and trace identifiers across events.
 - Avoid mixing transport concerns with business logic.
+- Use Workflow Core when message-driven flows require multi-step orchestration instead of simple event handlers.
 
 ## Consumer design
 

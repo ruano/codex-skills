@@ -9,6 +9,7 @@ description: General backend code quality review
 - Check error handling
 - Evaluate readability and maintainability
 - Suggest refactoring when needed
+- Prefer Span/ReadOnlySpan over Substring in allocation-sensitive parsing paths
 
 ## Output Format
 - Findings
