@@ -30,7 +30,7 @@ Apply resilience patterns carefully and pragmatically in distributed .NET system
 - Use circuit breaker to fail fast when a dependency is unhealthy.
 - Explain trade-offs before adding fallback behavior.
 - Design side-effecting operations to be idempotent when retried.
-- Use Workflow Core for long-running orchestration that needs explicit retries, compensation, or recoverable workflow state.
+- Consider Workflow Core for long-running orchestration that needs explicit retries, compensation, or recoverable workflow state.
 
 ## Circuit breaker guidance
 
