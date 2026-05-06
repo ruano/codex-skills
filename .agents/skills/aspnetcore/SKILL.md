@@ -39,6 +39,7 @@ Provide guidance for modern ASP.NET Core backend development with maintainabilit
 - Use Scalar tool to document APIs using OpenAPI standards and generate client code when appropriate.
 - Add API versioning when evolving APIs to maintain backward compatibility.
 - Use Refit to create type-safe REST API clients when consuming other services to reduce boilerplate and improve maintainability.
+- Prefer using Microsoft.Extensions.Resilience for implementing retry policies and circuit breakers in a consistent way across the application, leveraging Polly under the hood for advanced resilience strategies.
 - Consider using Hangfire for background job processing when you need reliable, persistent background tasks with retry capabilities and a dashboard for monitoring.
 
 ## Project structure preference
@@ -62,6 +63,7 @@ For smaller services, keep the same separation of concerns even if the folders a
 - Avoid oversized classes with too many dependencies.
 - Use KeyedService (AddKeyedScoped, AddKeyedSingleton, AddKeyedTransient) when an interface has multiples implementations
 - Use Scrutor for assembly scanning and decoration when appropriate to reduce boilerplate in DI registration.
+- Use IOptions pattern for configuration and avoid injecting IConfiguration directly into services.
 
 ## API design
 
@@ -86,9 +88,12 @@ For smaller services, keep the same separation of concerns even if the folders a
 ## Security
 
 - Prefer secure defaults.
-- Use authentication and authorization consistently.
+- Use authentication and authorization consistently and OAuth2/OpenID Connect.
+- Apply rate limiting and throttling to protect APIs from abuse.
+- Follow the OWASP Top Ten for API security to mitigate common vulnerabilities.
 - Never hardcode secrets.
 - Never log sensitive values.
+- Use HTTPS and secure headers.
 
 ## Deployment
 

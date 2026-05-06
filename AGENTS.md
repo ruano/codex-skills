@@ -18,6 +18,8 @@
 - When changing public APIs, preserve backward compatibility unless explicitly instructed otherwise.
 - Use ValueTask for high-throughput async methods that may complete synchronously to reduce allocations.
 - Use coding conventions like .editorconfig
+- Prefer using Span over Substring when string manipulations
+- Add global StyleCop.json file and StyleCop analyzers
 
 ## Validation and quality
 
