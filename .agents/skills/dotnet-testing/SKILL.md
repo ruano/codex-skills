@@ -13,7 +13,9 @@ Guide the implementation and review of automated tests in .NET applications usin
 - Shouldly
 - Testcontainers
 - NSubstitute
+- Bogus
 - AAA pattern: Arrange, Act, Assert
+- use code coverage reports to identify untested code paths and ensure critical logic is covered
 
 The goal is to produce tests that are readable, deterministic, maintainable, and focused on behavior.
 
@@ -27,6 +29,7 @@ Use this skill when the task involves:
 - integration tests
 - test review or refactoring
 - test naming
+- use Bogus for realistic test data generation
 - assertions with Shouldly
 - mocks/stubs with NSubstitute
 - disposable infrastructure with Testcontainers
@@ -46,6 +49,8 @@ Always prefer:
 - expressive assertions with Shouldly
 - realistic integration tests
 - isolated unit tests
+- Write Unit Tests For Logic
+- Avoid Over-Mocking
 
 Avoid:
 

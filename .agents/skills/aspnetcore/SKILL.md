@@ -1,6 +1,6 @@
 ---
 name: aspnetcore
-description: Use this skill when building, reviewing, refactoring, or extending ASP.NET Core and .NET backend applications, including Web APIs, minimal APIs, controllers, DI, middleware, EF Core, authentication, authorization, and production-ready backend structure. Do not use for frontend-only tasks or non-.NET stacks.
+description: Use this skill when building, reviewing, refactoring, or extending ASP.NET Core and .NET backend applications, including Web APIs, minimal APIs, controllers, DI, middleware, and production-ready backend structure. Do not use for frontend-only tasks or non-.NET stacks.
 ---
 
 # ASP.NET Core
@@ -16,8 +16,6 @@ Provide guidance for modern ASP.NET Core backend development with maintainabilit
 - Controllers
 - Middleware
 - Dependency Injection
-- EF Core
-- Authentication and authorization
 - API design
 - Health checks
 - Background services
@@ -33,10 +31,15 @@ Provide guidance for modern ASP.NET Core backend development with maintainabilit
 - Use proper HTTP status codes.
 - Do not expose EF entities directly through API contracts.
 - Add pagination for list endpoints when needed.
-- Use ProblemDetails for API errors when possible.
-- Logging should be structured and avoid sensitive data.
+- Use global exception handler with ProblemDetails for API errors when possible.
+- Use Serilog for structured logging and avoid sensitive data.
+- Use OpenTelemetry defaults for distributed tracing and monitoring.
 - Use Options Pattern with data annotations and validate it on start using ValidateOnStart() method
 - Prefer Span/ReadOnlySpan over Substring for allocation-sensitive string parsing.
+- Use Scalar tool to document APIs using OpenAPI standards and generate client code when appropriate.
+- Add API versioning when evolving APIs to maintain backward compatibility.
+- Use Refit to create type-safe REST API clients when consuming other services to reduce boilerplate and improve maintainability.
+- Consider using Hangfire for background job processing when you need reliable, persistent background tasks with retry capabilities and a dashboard for monitoring.
 
 ## Project structure preference
 
@@ -58,18 +61,23 @@ For smaller services, keep the same separation of concerns even if the folders a
 - Avoid service locator patterns.
 - Avoid oversized classes with too many dependencies.
 - Use KeyedService (AddKeyedScoped, AddKeyedSingleton, AddKeyedTransient) when an interface has multiples implementations
+- Use Scrutor for assembly scanning and decoration when appropriate to reduce boilerplate in DI registration.
 
 ## API design
 
 - Use minimal APIs for smaller, focused services.
 - Use controllers for larger APIs or when conventions and grouping are helpful.
 - Validate input at the edge.
-- Use FluentValidation to validate endpoint request models.
+- Use FluentValidation to validate endpoint request models to prevent XSS and other injection attacks.
 - Keep transport validation separate from business validation.
+- Follow the RESTful principles for API design using the appropriate HTTP methods and status codes.
+- When real time communication is needed, consider using SignalR for WebSocket-based interactions or Server Sent Events (SSE) for simpler one-way streaming scenarios.
 
 ## Persistence
 
 - Prefer EF Core for standard CRUD and relational workflows.
+- When CQRS is needed, consider using Dapper for the read side to optimize performance and EF to manage the write side for its change tracking and migrations.
+- Use EF core migrations for schema changes and version control.
 - Use projections for reads.
 - Use AsNoTracking for read-only queries where appropriate.
 - Watch for N+1 queries.
@@ -81,6 +89,13 @@ For smaller services, keep the same separation of concerns even if the folders a
 - Use authentication and authorization consistently.
 - Never hardcode secrets.
 - Never log sensitive values.
+
+## Deployment
+
+- Use environment variables for configuration in production.
+- Create an initial CI/CD pipeline with build, test, and deploy stages fr GitHub Actions or Azure DevOps when setting up a new project.
+- Create an initial docker-compose file for local development and testing when setting up a new project.
+- Create an initial Dockerfile for containerization when setting up a new project.
 
 ## Output style
 
