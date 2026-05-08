@@ -48,6 +48,7 @@
 - Use the using statement to ensure that disposable objects are properly disposed of.
 - Use the null-coalescing operator.
 - Use pattern matching when possible
+- Use primary constructors
 - Use object initializers to create objects.
 - For Dtos, chose immutable record insetead of classes.
 - Keep functions small and classes focused on a single job.
