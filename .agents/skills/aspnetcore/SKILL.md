@@ -42,6 +42,7 @@ Provide guidance for modern ASP.NET Core backend development with maintainabilit
 - Prefer using Microsoft.Extensions.Resilience for implementing retry policies and circuit breakers in a consistent way across the application, leveraging Polly under the hood for advanced resilience strategies.
 - Consider using Hangfire for background job processing when you need reliable, persistent background tasks with retry capabilities and a dashboard for monitoring.
 - Use System.Text.Json for JSON serialization and deserialization for better performance and lower memory usage compared to Newtonsoft.Json, unless you require specific features that are only available in Newtonsoft.Json.
+- Use connection pooling with IHttpClientFactory to optimize outbound HTTP calls and avoid socket exhaustion.
 
 ## Project structure preference
 
