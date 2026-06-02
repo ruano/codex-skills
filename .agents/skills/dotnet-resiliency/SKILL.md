@@ -59,7 +59,11 @@ Check:
 - database constraints enforce uniqueness for operations that must only happen once
 - side effects such as payments, emails, external API calls, publishes, and state transitions cannot be duplicated by retry or replay
 - concurrent attempts cannot bypass idempotency through race conditions
+- check potential issues when race conditions or concurrent processing can cause multiple attempts to succeed when only one should, such as:
+  - two messages with the same id being processed at the same time
+  - a retry attempt starting before the original attempt has recorded its outcome
 - retry behavior is coordinated with transactions, outbox/inbox records, message commits, and external dependency semantics
+- failure recovery, what happens when any dependency is unavailable, and how retries interact with these failure modes
 
 ## Output style
 
