@@ -1,5 +1,5 @@
 ---
-name: architecture-review
+name: architecture
 description: Review system design and architectural decisions
 ---
 
